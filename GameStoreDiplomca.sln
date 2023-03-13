@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStoreDiplomca", "GameStoreDiplomca\GameStoreDiplomca.csproj", "{A1E885D8-6188-409F-86D7-0A8A75A1D548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4426BCF9-5424-42B8-87D4-91FABA33402E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A1E885D8-6188-409F-86D7-0A8A75A1D548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1E885D8-6188-409F-86D7-0A8A75A1D548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1E885D8-6188-409F-86D7-0A8A75A1D548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4426BCF9-5424-42B8-87D4-91FABA33402E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4426BCF9-5424-42B8-87D4-91FABA33402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4426BCF9-5424-42B8-87D4-91FABA33402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4426BCF9-5424-42B8-87D4-91FABA33402E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
