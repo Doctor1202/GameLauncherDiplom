@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace GameStoreDiplomca.Windows
 {
@@ -26,6 +28,12 @@ namespace GameStoreDiplomca.Windows
             DbConnect.ConnectionToDb();
         }
 
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collection = storeDB.GetCollection<BsonDocument>("User");
 
+
+        }
     }
 }

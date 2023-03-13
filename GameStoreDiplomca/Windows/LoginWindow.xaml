@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="663,337,0,0" VerticalAlignment="Top" Height="35" Width="90"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="60,344,0,0" VerticalAlignment="Top" Width="234" Height="28"/>
-        <TextBox Margin="60,204,506,204"></TextBox>
-        <TextBlock Margin="60,136,446,235" Text="Login"></TextBlock>
-        <TextBlock Margin="60,276,446,95" Text="Password"/>
+        <Button x:Name="Login_Button" Content="Log In" HorizontalAlignment="Left" Margin="507,352,0,0" VerticalAlignment="Top" Height="35" Width="90" Click="Login_Button_Click"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="59,359,0,0" VerticalAlignment="Top" Width="234" Height="28"/>
+        <TextBox Margin="59,219,507,189"></TextBox>
+        <TextBlock Margin="59,151,447,220" Text="Login" FontFamily="Segoe UI Black" FontSize="36"/>
+        <TextBlock Margin="59,291,447,80" Text="Password" FontFamily="Segoe UI Black" FontSize="36"/>
+        <Button x:Name="Reg_Button" Content="Registration" HorizontalAlignment="Left" Margin="655,352,0,0" VerticalAlignment="Top" Height="35" Width="90"/>
     </Grid>
 </Window>
