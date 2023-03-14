@@ -9,9 +9,9 @@
     <Grid>
         <Button x:Name="Login_Button" Content="Log In" HorizontalAlignment="Left" Margin="507,352,0,0" VerticalAlignment="Top" Height="35" Width="90" Click="Login_Button_Click"/>
         <PasswordBox x:Name="PassWord_Box" HorizontalAlignment="Left" Margin="59,359,0,0" VerticalAlignment="Top" Width="234" Height="28"/>
-        <TextBox x:Name="LogIn_Box" Margin="59,219,507,189"/>
         <TextBlock Margin="59,151,447,220" Text="Login" FontFamily="Segoe UI Black" FontSize="36"/>
         <TextBlock Margin="59,291,447,80" Text="Password" FontFamily="Segoe UI Black" FontSize="36"/>
-        <Button x:Name="Reg_Button" Content="Registration" HorizontalAlignment="Left" Margin="655,352,0,0" VerticalAlignment="Top" Height="35" Width="90"/>
+        <Button x:Name="Reg_Button" Content="Registration" HorizontalAlignment="Left" Margin="655,352,0,0" VerticalAlignment="Top" Height="35" Width="90" Click="Reg_Button_Click"/>
+        <TextBox x:Name="LogIn_Box" HorizontalAlignment="Left" Margin="59,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Height="28"/>
     </Grid>
 </Window>

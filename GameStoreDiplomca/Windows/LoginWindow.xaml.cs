@@ -1,19 +1,8 @@
 ﻿using GameStoreDiplomca.Class;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
+using System.Windows;
 
 namespace GameStoreDiplomca.Windows
 {
@@ -30,16 +19,17 @@ namespace GameStoreDiplomca.Windows
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-            var collection = storeDB.GetCollection<BsonDocument>("User");
-            var logInUser = collection.Find(_=>true);
-
             string logInBox = LogIn_Box.Text;
             string passWordBox = PassWord_Box.Password;
 
+            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collection = storeDB.GetCollection<BsonDocument>("User");
             var serchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+            var logInUser = collection.Find(_ => true);
 
-            if (serchFilter is not null)
+
+
+            if (serchFilter == logInUser)
             {
                 MessageBox.Show("+");
             }
@@ -48,6 +38,51 @@ namespace GameStoreDiplomca.Windows
                 MessageBox.Show("-");
             }
 
+        }
+
+        private void Reg_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string logInBox = LogIn_Box.Text;
+            string passWordBox = PassWord_Box.Password;
+
+            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collection = storeDB.GetCollection<BsonDocument>("User");
+            var filter = Builders<BsonDocument>.Filter.Text("string"); ;
+            var filter2 = collection.Find(filter).FirstOrDefault();
+
+            try
+            {
+            var logInUser = new BsonDocument
+            {
+                {
+                    "scores",
+                    new BsonArray
+                    {
+                        new BsonDocument { { "type", "login" }, { "string", logInBox } },
+                        new BsonDocument { { "type", "password" }, { "string", passWordBox } }
+                    }
+                }
+            };
+                foreach () 
+                {
+                }
+
+                if (logInUser == filter2)
+                {
+                    MessageBox.Show("Can`t creat two same acaunts!");
+                }
+                else
+                {
+                    collection.InsertOne(logInUser);
+                    MessageBox.Show("All alright");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
+
+            }
         }
     }
 }
