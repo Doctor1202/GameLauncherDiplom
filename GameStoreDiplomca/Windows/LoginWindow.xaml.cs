@@ -32,7 +32,21 @@ namespace GameStoreDiplomca.Windows
         {
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
             var collection = storeDB.GetCollection<BsonDocument>("User");
+            var logInUser = collection.Find(_=>true);
 
+            string logInBox = LogIn_Box.Text;
+            string passWordBox = PassWord_Box.Password;
+
+            var serchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+
+            if (serchFilter is not null)
+            {
+                MessageBox.Show("+");
+            }
+            else
+            {
+                MessageBox.Show("-");
+            }
 
         }
     }

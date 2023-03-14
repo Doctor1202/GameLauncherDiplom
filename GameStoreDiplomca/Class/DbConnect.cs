@@ -17,10 +17,9 @@ namespace GameStoreDiplomca.Class
             try
             {
                 dbClient = new MongoClient("mongodb://localhost:27017");
-                var userDb = dbClient.GetDatabase("sample_training");
 
             }
-            catch (Exception ex) 
+            catch(Exception ex) 
             {
                 MessageBox.Show("Error" + ex);
                 Environment.Exit(1);
