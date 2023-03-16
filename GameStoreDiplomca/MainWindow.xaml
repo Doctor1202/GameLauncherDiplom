@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="White">
     <Grid>
-        
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,400,10"/>
+        <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="405,398,0,0" VerticalAlignment="Top" Height="26" Width="119"/>
+        <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="405,344,0,0" VerticalAlignment="Top" Height="26" Width="119"/>
+        <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="405,287,0,0" VerticalAlignment="Top" Height="26" Width="119"/>
+
     </Grid>
 </Window>

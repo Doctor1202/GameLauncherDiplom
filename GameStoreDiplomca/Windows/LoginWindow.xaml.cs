@@ -25,18 +25,23 @@ namespace GameStoreDiplomca.Windows
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
             var collection = storeDB.GetCollection<BsonDocument>("User");
             var serchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
-            var logInUser = collection.Find(_ => true);
+            var logInUser = collection.Find(serchFilter);
 
 
 
-            if (serchFilter == logInUser)
+
+            /*if (logInUser) 
             {
                 MessageBox.Show("+");
             }
             else
             {
                 MessageBox.Show("-");
-            }
+
+            }*/
+
+            MainWindow main = new MainWindow();
+            main.Show();
 
         }
 
@@ -47,25 +52,16 @@ namespace GameStoreDiplomca.Windows
 
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
             var collection = storeDB.GetCollection<BsonDocument>("User");
-            var filter = Builders<BsonDocument>.Filter.Text("string"); ;
+            var filter = Builders<BsonDocument>.Filter.Text("scores"); ;
             var filter2 = collection.Find(filter).FirstOrDefault();
 
             try
             {
             var logInUser = new BsonDocument
             {
-                {
-                    "scores",
-                    new BsonArray
-                    {
-                        new BsonDocument { { "type", "login" }, { "string", logInBox } },
-                        new BsonDocument { { "type", "password" }, { "string", passWordBox } }
-                    }
-                }
+            new BsonDocument { { "type", "login" }, { "string", logInBox } },
+            new BsonDocument { { "type", "password" }, { "string", passWordBox } }
             };
-                foreach () 
-                {
-                }
 
                 if (logInUser == filter2)
                 {
@@ -73,7 +69,7 @@ namespace GameStoreDiplomca.Windows
                 }
                 else
                 {
-                    collection.InsertOne(logInUser);
+                    collection.InsertOneAsync(logInUser);
                     MessageBox.Show("All alright");
                 }
 

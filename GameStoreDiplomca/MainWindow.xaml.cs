@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameStoreDiplomca.Class;
 using MongoDB.Driver;
 
 
@@ -25,6 +26,8 @@ namespace GameStoreDiplomca
         public MainWindow()
         {
             InitializeComponent();
+            DbConnect.ConnectionToDb();
+
         }
 
 
