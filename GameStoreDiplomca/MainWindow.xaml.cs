@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GameStoreDiplomca.Class;
+using GameStoreDiplomca.Windows;
 using MongoDB.Driver;
 
 
@@ -27,9 +28,17 @@ namespace GameStoreDiplomca
         {
             InitializeComponent();
             DbConnect.ConnectionToDb();
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
-
+        private void Change_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeWindow change = new ChangeWindow();
+            change.Show();
+        }
     }
 }

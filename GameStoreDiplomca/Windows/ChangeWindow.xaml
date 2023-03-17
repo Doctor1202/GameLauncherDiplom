@@ -1,0 +1,13 @@
+﻿<Window x:Class="GameStoreDiplomca.Windows.ChangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameStoreDiplomca.Windows"
+        mc:Ignorable="d"
+        Title="ChangeWindow" Height="450" Width="349">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Segoe UI Black" Width="80"/>
+
+    </Grid>
+</Window>
