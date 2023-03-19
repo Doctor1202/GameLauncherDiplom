@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStoreDiplomca"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="White">
+        Title="MainWindow" Height="460" Width="800" Background="White">
     <Grid Margin="1,0,-1,0">
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,54,518,10" IsSynchronizedWithCurrentItem="False"/>
-        <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="287,354,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Delete_Button_Click"/>
-        <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="287,310,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
-        <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="287,268,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Change_Button_Click"/>
+        <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="287,362,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Delete_Button_Click"/>
+        <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="287,318,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
+        <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="287,276,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Change_Button_Click"/>
         <GroupBox Header="GroupBox" Margin="287,54,10,171">
             <Button x:Name="Exit_Button_Copy1" Content="Add money" HorizontalAlignment="Left" Margin="397,0,0,0" VerticalAlignment="Bottom" Height="26" Width="94"/>
         </GroupBox>
