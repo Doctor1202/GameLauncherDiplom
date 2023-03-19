@@ -34,6 +34,9 @@ namespace GameStoreDiplomca.Windows
 
                 MainWindow main = new MainWindow();
                 main.Show();
+
+                //LoginWindow loginWin = new LoginWindow();
+                //loginWin.Hide();
             }
             else
             {
