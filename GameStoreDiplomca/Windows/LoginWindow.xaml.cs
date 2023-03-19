@@ -25,12 +25,10 @@ namespace GameStoreDiplomca.Windows
 
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
             var collection = storeDB.GetCollection<BsonDocument>("User");
-            var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox) |
-                               Builders<BsonDocument>.Filter.Eq("Password", passWordBox);
-            var logInUser = collection.Find(searchFilter).SingleOrDefault();
-            var logInUser2 = collection.Find(searchFilter).FirstOrDefault();
+            var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+            var logInUser = collection.Find(searchFilter).FirstOrDefault();
 
-            if (logInUser == logInUser2 && logInUser is not null)
+            if (logInUser is not null && logInUser["Password"] == passWordBox)
             {
                 MessageBox.Show("+");
 
@@ -54,17 +52,16 @@ namespace GameStoreDiplomca.Windows
 
                 var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
                 var collection = storeDB.GetCollection<BsonDocument>("User");
-                var filter = Builders<BsonDocument>.Filter.Eq("Login", logInBox) |
-                             Builders<BsonDocument>.Filter.Eq("Password", passWordBox);
-                var filter2 = collection.Find(filter).SingleOrDefault();
-
+                var filter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+                var filter2 = collection.Find(filter).FirstOrDefault();
+                
                 var logInUser = new BsonDocument
                 {
                     { "Login",  logInBox },
                     {"Password", passWordBox }
                 };
 
-                if (filter2["Login"] == logInUser["Login"] && filter2["Password"] == logInUser["Password"])
+                if (filter2 is not null)
                 {
                     MessageBox.Show("Can`t create two same accounts!");
                 }
