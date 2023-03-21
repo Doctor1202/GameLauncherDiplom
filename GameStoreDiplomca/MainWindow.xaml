@@ -9,7 +9,7 @@
     <Grid Margin="0,0, 0,0">
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,54,518,10" IsSynchronizedWithCurrentItem="False"/>
         <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="287,448,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Delete_Button_Click"/>
-        <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="287,404,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
+        <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="287,404,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Create_Button_Click"/>
         <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="287,362,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Change_Button_Click"/>
         <GroupBox Header="GroupBox" Margin="287,58,10,167"/>
         <TextBlock x:Name="Game_Text" HorizontalAlignment="Left" Margin="296,83,0,330" TextWrapping="Wrap" Text="Game" Width="78" FontFamily="Segoe UI Black"/>
@@ -21,7 +21,7 @@
         <TextBlock x:Name="User_Text" HorizontalAlignment="Left" Margin="129,10,0,435" TextWrapping="Wrap" Text="User" Width="114" FontFamily="Segoe UI Black" FontSize="24"/>
         <TextBlock x:Name="MoneyCoint_Text" HorizontalAlignment="Left" Margin="629,10,0,448" TextWrapping="Wrap" Text="?" Width="63" FontSize="18"/>
         <Button x:Name="Exit_Button_Copy" Content="Add money" HorizontalAlignment="Left" Margin="692,10,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
-        <TextBlock x:Name="MoneyCoint_Text_Copy" HorizontalAlignment="Left" Margin="639,284,0,177" TextWrapping="Wrap" Text="?" Width="47" FontSize="18"/>
+        <TextBlock x:Name="MoneyCoint_Text_Copy" HorizontalAlignment="Left" Margin="636,282,0,175" TextWrapping="Wrap" Text="?" Width="47" FontSize="18"/>
         <Button x:Name="Exit_Button_Copy1" Content="Add money" HorizontalAlignment="Left" Margin="688,0,0,175" VerticalAlignment="Bottom" Height="26" Width="94"/>
 
     </Grid>

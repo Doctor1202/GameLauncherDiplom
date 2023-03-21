@@ -40,5 +40,11 @@ namespace GameStoreDiplomca
             ChangeWindow change = new ChangeWindow();
             change.Show();
         }
+
+        private void Create_Button_Click(object sender, RoutedEventArgs e)
+        {
+            CreateWindow create = new CreateWindow();
+            create.Show();
+        }
     }
 }
