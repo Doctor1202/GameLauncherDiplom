@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStoreDiplomca.Windows"
         mc:Ignorable="d"
-        Title="CreateWindow" Height="450" Width="800">
+        Title="CreateWindow" Height="467" Width="810">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create new Gamepage" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,100,0,0" TextWrapping="Wrap" Text="Game name:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22"/>
@@ -13,11 +13,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,168,0,0" TextWrapping="Wrap" Text="Genre:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Center" FontFamily="Segoe UI Black" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,355,0,0" TextWrapping="Wrap" Text="Cost:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22"/>
-        <TextBox x:Name="GameName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,105,74,300"/>
-        <TextBox x:Name="PublisherName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,139,74,266"/>
-        <TextBox x:Name="GenreName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,173,74,232"/>
-        <TextBox x:Name="Description_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,207,74,84"/>
-        <TextBox x:Name="Cost_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,355,74,50"/>
+        <TextBox x:Name="GameName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,105,74,317"/>
+        <TextBox x:Name="PublisherName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,139,74,283"/>
+        <TextBox x:Name="GenreName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,173,74,249"/>
+        <TextBox x:Name="Description_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,207,74,101"/>
+        <TextBox x:Name="Cost_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="149,355,74,67"/>
         <Button x:Name="AddNewGame_Button" Content="Add new game" HorizontalAlignment="Left" Margin="679,389,0,0" VerticalAlignment="Top" Height="35" Width="111" Click="AddNewGame_Button_Click"/>
         <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="563,389,0,0" VerticalAlignment="Top" Height="35" Width="111" Click="Exit_Button_Click"/>
 

@@ -5,9 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStoreDiplomca.Windows"
         mc:Ignorable="d"
-        Title="ChangeWindow" Height="450" Width="349">
+        Title="ChangeWindow" Height="450" Width="1026">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Segoe UI Black" Width="80"/>
+        <TextBlock HorizontalAlignment="Left" Margin="505,107,0,0" TextWrapping="Wrap" Text="Game name:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="524,141,0,0" TextWrapping="Wrap" Text="Publisher:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="552,175,0,0" TextWrapping="Wrap" Text="Genre:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="508,201,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="563,357,0,0" TextWrapping="Wrap" Text="Cost:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBox x:Name="GameName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="608,103,10,302"/>
+        <TextBox x:Name="PublisherName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="608,137,10,268"/>
+        <TextBox x:Name="GenreName_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="608,171,10,234"/>
+        <TextBox x:Name="Description_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="608,205,10,86"/>
+        <TextBox x:Name="Cost_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="608,353,10,52"/>
+        <TextBlock HorizontalAlignment="Left" Margin="6,100,0,0" TextWrapping="Wrap" Text="Game name:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="25,134,0,0" TextWrapping="Wrap" Text="Publisher:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,168,0,0" TextWrapping="Wrap" Text="Genre:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="9,200,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="64,350,0,0" TextWrapping="Wrap" Text="Cost:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBox x:Name="GameName_TextBox_Copy" TextWrapping="Wrap" Text="TextBox" Margin="109,103,531,302" IsEnabled="False"/>
+        <TextBox x:Name="PublisherName_TextBox_Copy" TextWrapping="Wrap" Text="TextBox" Margin="109,137,531,268" IsEnabled="False"/>
+        <TextBox x:Name="GenreName_TextBox_Copy" TextWrapping="Wrap" Text="TextBox" Margin="109,171,531,234" IsEnabled="False"/>
+        <TextBox x:Name="Description_TextBox_Copy" TextWrapping="Wrap" Text="TextBox" Margin="109,205,531,86" IsEnabled="False"/>
+        <TextBox x:Name="Cost_TextBox_Copy" TextWrapping="Wrap" Text="TextBox" Margin="109,353,531,52" IsEnabled="False"/>
+        <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="872,387,0,0" VerticalAlignment="Top" Height="37" Width="144" Click="Change_Button_Click"/>
+        <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="723,387,0,0" VerticalAlignment="Top" Height="37" Width="144" Click="Exit_Button_Click"/>
+        <TextBox x:Name="Search_TextBox" TextWrapping="Wrap" Text="TextBox" Margin="182,18,489,376"/>
+        <Button x:Name="Search_Button" Content="Search" HorizontalAlignment="Left" Margin="541,18,0,0" VerticalAlignment="Top" Height="40" Width="84" Click="Search_Button_Click"/>
 
     </Grid>
 </Window>
