@@ -7,22 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="523" Width="820" Background="White">
     <Grid Margin="0,0, 0,0">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,54,518,10" IsSynchronizedWithCurrentItem="False"/>
+        <DataGrid x:Name="GameList_DataGid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,54,518,10" IsSynchronizedWithCurrentItem="False" MouseUp="GameList_DataGid_MouseUp">
+            <DataGrid.CellStyle>
+                <Style/>
+            </DataGrid.CellStyle>
+        </DataGrid>
         <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="287,448,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Delete_Button_Click"/>
         <Button x:Name="Create_Button" Content="Create" HorizontalAlignment="Left" Margin="287,404,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Create_Button_Click"/>
         <Button x:Name="Change_Button" Content="Change" HorizontalAlignment="Left" Margin="287,362,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Change_Button_Click"/>
         <GroupBox Header="GroupBox" Margin="287,58,10,167"/>
-        <TextBlock x:Name="Game_Text" HorizontalAlignment="Left" Margin="296,83,0,330" TextWrapping="Wrap" Text="Game" Width="78" FontFamily="Segoe UI Black"/>
-        <TextBlock x:Name="Genre_Text" HorizontalAlignment="Left" Margin="296,109,0,304" TextWrapping="Wrap" Text="Genre" Width="78" FontFamily="Segoe UI Black"/>
-        <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="694,448,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
-        <Button x:Name="Refresh_Button" Content="Refresh" HorizontalAlignment="Left" Margin="592,448,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
+        <TextBlock x:Name="Game_Text" HorizontalAlignment="Left" Margin="296,83,0,330" TextWrapping="Wrap" Text="Game" FontFamily="Segoe UI Black" Width="NaN"/>
+        <TextBlock x:Name="Genre_Text" HorizontalAlignment="Left" Margin="296,109,0,304" TextWrapping="Wrap" Text="Genre" FontFamily="Segoe UI Black" Width="NaN"/>
+        <Button x:Name="Exit_Button" Content="Exit" IsCancel="True" HorizontalAlignment="Left" Margin="694,448,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Exit_Button_Click"/>
+        <Button x:Name="Refresh_Button" Content="Refresh" HorizontalAlignment="Left" Margin="592,448,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Refresh_Button_Click"/>
         <TextBlock x:Name="Welcome_Text" HorizontalAlignment="Left" Margin="10,10,0,435" TextWrapping="Wrap" Text="Welcome" Width="114" FontFamily="Segoe UI Black" FontSize="24"/>
         <TextBlock x:Name="Money_Text" HorizontalAlignment="Left" Margin="561,10,0,448" TextWrapping="Wrap" Text="Money:" Width="63" FontSize="18"/>
         <TextBlock x:Name="User_Text" HorizontalAlignment="Left" Margin="129,10,0,435" TextWrapping="Wrap" Text="User" Width="114" FontFamily="Segoe UI Black" FontSize="24"/>
         <TextBlock x:Name="MoneyCoint_Text" HorizontalAlignment="Left" Margin="629,10,0,448" TextWrapping="Wrap" Text="?" Width="63" FontSize="18"/>
         <Button x:Name="Exit_Button_Copy" Content="Add money" HorizontalAlignment="Left" Margin="692,10,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
-        <TextBlock x:Name="MoneyCoint_Text_Copy" HorizontalAlignment="Left" Margin="636,282,0,175" TextWrapping="Wrap" Text="?" Width="47" FontSize="18"/>
+        <TextBlock x:Name="MoneyCoint_Text1" HorizontalAlignment="Left" Margin="636,282,0,175" TextWrapping="Wrap" Text="?" FontSize="18"/>
         <Button x:Name="Exit_Button_Copy1" Content="Add money" HorizontalAlignment="Left" Margin="688,0,0,175" VerticalAlignment="Bottom" Height="26" Width="94"/>
+        <TextBlock x:Name="Publisher_Text" HorizontalAlignment="Left" Margin="296,138,0,274" TextWrapping="Wrap" Text="Publisher" FontFamily="Segoe UI Black"/>
+        <TextBlock x:Name="Description_Text" HorizontalAlignment="Left" Margin="296,173,0,200" TextWrapping="Wrap" Text="Desciption" FontFamily="Segoe UI Black"/>
 
     </Grid>
 </Window>

@@ -22,6 +22,7 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class ChangeWindow : Window
     {
+
         public ChangeWindow()
         {
             InitializeComponent();

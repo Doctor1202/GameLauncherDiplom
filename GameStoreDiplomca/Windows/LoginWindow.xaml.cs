@@ -12,6 +12,8 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
+        static MainWindow main = new MainWindow();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -20,28 +22,29 @@ namespace GameStoreDiplomca.Windows
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            string logInBox = LogIn_Box.Text;
-            string passWordBox = PassWord_Box.Password;
-
-            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-            var collection = storeDB.GetCollection<BsonDocument>("User");
-            var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
-            var logInUser = collection.Find(searchFilter).FirstOrDefault();
-
-            if (logInUser is not null && logInUser["Password"] == passWordBox)
+            try
             {
-                MessageBox.Show("+");
 
-                MainWindow main = new MainWindow();
-                main.Show();
+                string logInBox = LogIn_Box.Text;
+                string passWordBox = PassWord_Box.Password;
 
-                //LoginWindow loginWin = new LoginWindow();
-                //loginWin.Hide();
+                var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+                var collection = storeDB.GetCollection<BsonDocument>("User");
+                var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+                var logInUser = collection.Find(searchFilter).FirstOrDefault();
+
+                if (logInUser is not null && logInUser["Password"] == passWordBox)
+                {
+                    MessageBox.Show("+");
+                    main.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("-");
+                }
             }
-            else
-            {
-                MessageBox.Show("-");
-            }
+            catch(Exception ex) { MessageBox.Show("Error" + ex); }
 
 
         }

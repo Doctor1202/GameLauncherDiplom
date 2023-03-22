@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="DeleteWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Yes_Button" Content="Yes" HorizontalAlignment="Left" Margin="146,333,0,0" VerticalAlignment="Top" Height="31" Width="62"/>
-        <Button x:Name="No_Button" Content="No" HorizontalAlignment="Left" Margin="594,333,0,0" VerticalAlignment="Top" Height="31" Width="62"/>
+        <Button x:Name="Yes_Button" Content="Yes" HorizontalAlignment="Left" Margin="146,333,0,0" VerticalAlignment="Top" Height="31" Width="62" Click="Yes_Button_Click"/>
+        <Button x:Name="No_Button" Content="No" HorizontalAlignment="Left" Margin="594,333,0,0" VerticalAlignment="Top" Height="31" Width="62" Click="No_Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="222,124,0,0" TextWrapping="Wrap" Text="Do you want to delete GamePage:" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20"/>
+        <TextBlock x:Name="GameName_Text" HorizontalAlignment="Center" Margin="0,156,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20"/>
 
     </Grid>
 </Window>
