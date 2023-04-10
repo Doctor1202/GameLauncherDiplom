@@ -38,7 +38,6 @@ namespace GameStoreDiplomca.Windows
 
         private void Yes_Button_Click(object sender, RoutedEventArgs e)
         {
-
             var gameName = GameName_Text.Text;
             var filter = Builders<BsonDocument>.Filter.Eq("GameName", gameName);
 

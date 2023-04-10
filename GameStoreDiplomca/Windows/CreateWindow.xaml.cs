@@ -65,8 +65,7 @@ namespace GameStoreDiplomca.Windows
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
-            CreateWindow create = new CreateWindow();
-            create.Close() ;
+            Close() ;
         }
     }
 }

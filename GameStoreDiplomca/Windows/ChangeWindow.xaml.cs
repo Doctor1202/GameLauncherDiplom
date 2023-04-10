@@ -58,8 +58,7 @@ namespace GameStoreDiplomca.Windows
         }
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
-            ChangeWindow change = new ChangeWindow();
-            change.Close();
+            Close();
         }
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)

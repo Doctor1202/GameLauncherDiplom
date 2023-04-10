@@ -15,9 +15,15 @@ namespace GameStoreDiplomca
     /// </summary>
     public partial class MainWindow : Window
     {
-        static DeleteWindow delete = new DeleteWindow();
+         
         static MainWindow main = new MainWindow();
         static LoginWindow login = new LoginWindow();
+
+        static MongoClient dbClient = new MongoClient();
+        static IMongoDatabase? storeDb = dbClient.GetDatabase("StoreDB");
+        static IMongoCollection<GamePage>? collection = storeDb.GetCollection<GamePage>("GamePage");
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -26,11 +32,13 @@ namespace GameStoreDiplomca
         }
         public void SelectedName()
         {
+            DeleteWindow delete = new DeleteWindow();
             delete.GameName_Text.Text = Game_Text.Text;
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
+            DeleteWindow delete = new DeleteWindow();
             SelectedName();
             delete.Show();
         }
@@ -63,9 +71,6 @@ namespace GameStoreDiplomca
 
         private void GameList_DataGid_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-            var collection = storeDB.GetCollection<GamePage>("GamePage");
-
             GamePage gp = (GamePage)GameList_DataGid.SelectedItem;
             
             Game_Text.Text = gp.GameName;
