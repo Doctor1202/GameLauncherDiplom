@@ -22,14 +22,17 @@ namespace GameStoreDiplomca
         static MongoClient dbClient = new MongoClient();
         static IMongoDatabase? storeDb = dbClient.GetDatabase("StoreDB");
         static IMongoCollection<GamePage>? collection = storeDb.GetCollection<GamePage>("GamePage");
+        static IMongoCollection<User>? collectionUser = storeDb.GetCollection<User>("User");
 
 
         public MainWindow()
         {
+
             InitializeComponent();
             DbConnect.ConnectionToDb();
             ReadAllDocument();
         }
+       
         public void SelectedName()
         {
             DeleteWindow delete = new DeleteWindow();

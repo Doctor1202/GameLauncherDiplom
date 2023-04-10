@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace GameStoreDiplomca.Class
 {
     public class User
     {
+        public ObjectId Id { get; private set; }
         public string UserName { get; private set; }
         public string Login { get; private set; }
         public string Password { get; private set; }

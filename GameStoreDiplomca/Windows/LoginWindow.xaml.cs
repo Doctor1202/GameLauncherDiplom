@@ -16,12 +16,22 @@ namespace GameStoreDiplomca.Windows
         static MongoClient dbClient = new MongoClient();
         static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
         static IMongoCollection<BsonDocument> collection = storeDb.GetCollection<BsonDocument>("User");
-
+        static IMongoCollection<User>? collectionUser = storeDb.GetCollection<User>("User");
 
         public LoginWindow()
         {
             InitializeComponent();
             DbConnect.ConnectionToDb();
+        }
+
+        public void UserName()
+        {
+            string logInBox = LogIn_Box.Text;
+
+            var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
+            var userInfo = collectionUser.Find(searchFilter).FirstOrDefault();
+
+            main.User_Text.Text = userInfo.UserName;
         }
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
@@ -37,18 +47,19 @@ namespace GameStoreDiplomca.Windows
                 var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
                 var logInUser = collection.Find(searchFilter).FirstOrDefault();
 
-                if (logInUser is not null && logInUser["Password"] == passWordBox )
+                if (logInUser is not null && logInUser["Password"] == passWordBox)
                 {
                     MessageBox.Show("+");
                     main.Show();
                     Close();
+                    UserName();
                 }
                 else
                 {
                     MessageBox.Show("-");
                 }
             }
-            catch(Exception ex) { MessageBox.Show("Error" + ex); }
+            catch (Exception ex) { MessageBox.Show("Error" + ex); }
 
 
         }
