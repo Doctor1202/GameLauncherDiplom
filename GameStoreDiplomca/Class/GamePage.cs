@@ -26,9 +26,9 @@ namespace GameStoreDiplomca.Class
         public string Description { get; set; }
 
         [BsonElement("GameCost")]
-        public string GameCost { get; set; }
+        public int GameCost { get; set; }
 
-        public GamePage(string gameName, string publisher, string genre, string description, string gameCost)
+        public GamePage(string gameName, string publisher, string genre, string description, int gameCost)
         {
             GameName = gameName;
             Publisher = publisher;

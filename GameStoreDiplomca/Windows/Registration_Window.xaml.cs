@@ -49,7 +49,9 @@ namespace GameStoreDiplomca.Windows
                 {
                     {"UserName", userName },
                     { "Login",  logInBox },
-                    {"Password", passWordBox }
+                    {"Password", passWordBox },
+                    {"Money", 0 },
+                    {"IsAdmin", false }
                 };
 
                 if (filter2 is not null)

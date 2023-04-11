@@ -13,7 +13,7 @@ namespace GameStoreDiplomca.Class
         public string UserName { get; private set; }
         public string Login { get; private set; }
         public string Password { get; private set; }
-        public string Money { get; private set; }
+        public int Money { get; set; }
         public bool IsAdmin { get; private set; }
 
 

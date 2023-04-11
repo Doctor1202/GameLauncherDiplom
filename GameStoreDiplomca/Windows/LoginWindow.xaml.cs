@@ -24,6 +24,20 @@ namespace GameStoreDiplomca.Windows
             DbConnect.ConnectionToDb();
         }
 
+        public void ReadUserMonye()
+        {
+            string logInBox = LogIn_Box.Text;
+
+            //Обновлення грошей користувача
+            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collection = storeDB.GetCollection<User>("User");
+            var filter = Builders<User>.Filter.Eq("Login", logInBox);
+            var userMonye = collection.Find(filter).FirstOrDefault();
+
+            main.MoneyCoint_Text.Text = userMonye.Money.ToString();
+        }
+
+
         public void UserName()
         {
             try
@@ -57,6 +71,7 @@ namespace GameStoreDiplomca.Windows
                     main.Show();
                     Close();
                     UserName();
+                    ReadUserMonye();
                 }
                 else
                 {

@@ -27,8 +27,19 @@ namespace GameStoreDiplomca.Windows
         {
             InitializeComponent();
             DbConnect.ConnectionToDb();
+            //SearchCBUpdate();
         }
 
+        public void SearchCBUpdate()
+        {
+            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collection = storeDB.GetCollection<GamePage>("GamePage");
+            var filter = new BsonDocument();
+            var filter2 = collection.Find(filter).ToList();
+
+
+            Search_ComboBox.ItemsSource = filter2;
+        }
 
         private void Change_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +76,7 @@ namespace GameStoreDiplomca.Windows
         {
             try
             {
-                string search = Search_TextBox.Text;
+                string search = Search_ComboBox.Text;
 
                 var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
                 var collection = storeDB.GetCollection<BsonDocument>("GamePage");
