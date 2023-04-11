@@ -27,7 +27,7 @@ namespace GameStoreDiplomca.Windows
 
         static MongoClient dbClient = new MongoClient();
         static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
-        static IMongoCollection<BsonDocument> collection = storeDb.GetCollection<BsonDocument>("GamePage");
+        static IMongoCollection<GamePage> collection = storeDb.GetCollection<GamePage>("GamePage");
 
         public DeleteWindow()
         {
@@ -39,7 +39,7 @@ namespace GameStoreDiplomca.Windows
         private void Yes_Button_Click(object sender, RoutedEventArgs e)
         {
             var gameName = GameName_Text.Text;
-            var filter = Builders<BsonDocument>.Filter.Eq("GameName", gameName);
+            var filter = Builders<GamePage>.Filter.Eq("GameName", gameName);
 
             collection.DeleteOne(filter);
             MessageBox.Show("Object was deleted.");

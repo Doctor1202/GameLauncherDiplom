@@ -19,9 +19,26 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class LibraryWindow : Window
     {
+
+
         public LibraryWindow()
         {
             InitializeComponent();
+        }
+
+        private void DataGridTextColumn_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
+        private void Refresh_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

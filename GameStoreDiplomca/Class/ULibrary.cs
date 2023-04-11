@@ -12,5 +12,6 @@ namespace GameStoreDiplomca.Class
         public ObjectId Id { get; private set; }
         public string UserName { get; private set; }
         public string GameName { get;  set; }
+        public bool IsDownloud { get;  set; }
     }
 }

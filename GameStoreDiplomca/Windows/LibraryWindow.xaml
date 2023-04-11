@@ -6,15 +6,23 @@
         xmlns:local="clr-namespace:GameStoreDiplomca.Windows"
         mc:Ignorable="d"
         Title="LibraryWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="GameList_DataGid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,492,10" IsSynchronizedWithCurrentItem="False" >
+    <Grid x:Name="Refresh_button">
+        <DataGrid x:Name="GameList_DataGid"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  Margin="10,58,492,10"
+                  IsSynchronizedWithCurrentItem="False"
+                  AutoGenerateColumns="False">
             <DataGrid.CellStyle>
                 <Style/>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="GameName" Binding="{Binding GameName}"/>
+                <DataGridTextColumn Header="GameName"
+                                    Binding="{Binding GameName}"
+                                    />
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="697,391,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Exit_Button_Click"/>
+        <Button x:Name="Refresh_Button" Content="Refresh" HorizontalAlignment="Left" Margin="599,391,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Refresh_Button_Click"/>
 
     </Grid>
 </Window>

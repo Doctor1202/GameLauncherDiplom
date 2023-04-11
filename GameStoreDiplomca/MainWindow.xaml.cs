@@ -18,11 +18,12 @@ namespace GameStoreDiplomca
          
         static MainWindow main = new MainWindow();
         static LoginWindow login = new LoginWindow();
+        static DeleteWindow delete = new DeleteWindow();
 
         static MongoClient dbClient = new MongoClient();
-        static IMongoDatabase? storeDb = dbClient.GetDatabase("StoreDB");
-        static IMongoCollection<GamePage>? collection = storeDb.GetCollection<GamePage>("GamePage");
-        static IMongoCollection<User>? collectionUser = storeDb.GetCollection<User>("User");
+        static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
+        static IMongoCollection<GamePage> collection = storeDb.GetCollection<GamePage>("GamePage");
+        static IMongoCollection<User> collectionUser = storeDb.GetCollection<User>("User");
 
 
         public MainWindow()
@@ -35,13 +36,11 @@ namespace GameStoreDiplomca
        
         public void SelectedName()
         {
-            DeleteWindow delete = new DeleteWindow();
             delete.GameName_Text.Text = Game_Text.Text;
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-            DeleteWindow delete = new DeleteWindow();
             SelectedName();
             delete.Show();
         }
