@@ -63,8 +63,10 @@ namespace GameStoreDiplomca
             var collection = storeDB.GetCollection<GamePage>("GamePage");
             var filter = new BsonDocument();
 
-            GameList_DataGid.DataContext = collection.Find(filter).ToList();
-            GameList_DataGid.ItemsSource = collection.Find(filter).ToList();
+            var dataGrid = collection.Find(filter).ToList();
+
+            GameList_DataGid.DataContext = dataGrid;
+            GameList_DataGid.ItemsSource = dataGrid;
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
@@ -75,17 +77,30 @@ namespace GameStoreDiplomca
         private void GameList_DataGid_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             GamePage gp = (GamePage)GameList_DataGid.SelectedItem;
-            
-            Game_Text.Text = gp.GameName;
-            Publisher_Text.Text = gp.Publisher;
-            Genre_Text.Text = gp.Genre;
-            Description_Text.Text = gp.Description;
-            MoneyCoint_Text1.Text = gp.GameCost;
+
+            if (gp == null)
+            {
+                
+            }
+            else {
+
+                Game_Text.Text = gp.GameName;
+                Publisher_Text.Text = gp.Publisher;
+                Genre_Text.Text = gp.Genre;
+                Description_Text.Text = gp.Description;
+                MoneyCoint_Text1.Text = gp.GameCost;
+            }
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
+        }
+
+        private void Library_Button_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryWindow library = new LibraryWindow();
+            library.Show();
         }
     }
 }

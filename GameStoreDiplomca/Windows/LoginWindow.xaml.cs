@@ -26,12 +26,16 @@ namespace GameStoreDiplomca.Windows
 
         public void UserName()
         {
-            string logInBox = LogIn_Box.Text;
+            try
+            {
+                string logInBox = LogIn_Box.Text;
 
-            var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
-            var userInfo = collectionUser.Find(searchFilter).FirstOrDefault();
+                var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
+                var userInfo = collectionUser.Find(searchFilter).FirstOrDefault();
 
-            main.User_Text.Text = userInfo.UserName;
+                main.User_Text.Text = userInfo.UserName;
+            }
+            catch (Exception ex){ MessageBox.Show("Error" + ex); }
         }
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
