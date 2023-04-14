@@ -25,7 +25,7 @@ namespace GameStoreDiplomca
         static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
         static IMongoCollection<GamePage> collection = storeDb.GetCollection<GamePage>("GamePage");
         static IMongoCollection<User> collectionUser = storeDb.GetCollection<User>("User");
-
+        static IMongoCollection<ULibrary> collectionUL = storeDb.GetCollection<ULibrary>("ULibrary");
 
         public MainWindow()
         {
@@ -42,6 +42,7 @@ namespace GameStoreDiplomca
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
+
             SelectedName();
             delete.Show();
         }
@@ -114,32 +115,58 @@ namespace GameStoreDiplomca
 
         private void Buy_Button_Click(object sender, RoutedEventArgs e)
         {
-            //вивід грошей користувача
-            var userName = User_Text.Text;
-            var filter = Builders<User>.Filter.Eq("UserName", userName);
-            var user = collectionUser.Find(filter).FirstOrDefault();
-
             //вивід ціни гри
             GamePage gp = (GamePage)GameList_DataGid.SelectedItem;
 
+            //вивід грошей користувача
+            var userName = User_Text.Text;
+            var filter = Builders<User>.Filter.Eq("UserName", userName);
+            var filter1 = Builders<User>.Filter.Eq("ULibrary.GameName", gp.GameName);
+            var user = collectionUser.Find(filter).FirstOrDefault();
+            var sameGame = collectionUser.Find(filter1).FirstOrDefault();
 
             int costOfGame = gp.GameCost;
             int uMonye = user.Money;
 
-            if (uMonye < costOfGame)
+            var gameInLibr1 = new ULibrary
             {
-                MessageBox.Show("You can`t buy this product.\n" +
-                                "Check your account balans");
-            }
-            else
+                GameName = gp.GameName,
+                IsDownloud = false
+            };
+
+            /*var gameInLibr1 = new BsonDocument
             {
+                { "GameName", gp.GameName },
+                { "IsDownloud", false }
+            };*/
+            var update = Builders<User>.Update.Push("ULibrary", gameInLibr1);
 
+            if (sameGame is not null)
+            {
+                MessageBox.Show("You already have this game!");
 
-
-
-                MessageBox.Show("Thank you for purchase. \n" +
-                                "Game was added to your library.");
             }
+            else 
+            {
+                if (uMonye < costOfGame)
+                {
+                    MessageBox.Show("You can`t buy this product.\n" +
+                                    "Check your account balans");
+                }
+                else
+                {
+                    collectionUser.FindOneAndUpdate(filter, update);
+                    uMonye -= costOfGame;
+
+                    var update1 = Builders<User>.Update.Set("Money", uMonye);
+                    collectionUser.UpdateOne(filter, update1);
+
+                    MessageBox.Show("Thank you for purchase. \n" +
+                                    "Game was added to your library.");
+                }
+            }
+
+            
         }
     }
 }

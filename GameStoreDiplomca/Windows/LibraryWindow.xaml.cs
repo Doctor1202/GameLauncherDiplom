@@ -22,7 +22,8 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class LibraryWindow : Window
     {
-
+        static MainWindow main = new MainWindow();
+        static LoginWindow log  = new LoginWindow();
 
         public LibraryWindow()
         {
@@ -34,14 +35,17 @@ namespace GameStoreDiplomca.Windows
         public void LReadAllDocument()
         {
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-            var collection = storeDB.GetCollection<ULibrary>("ULibrary");
-            var filter = new BsonDocument();
+            var collectionUL = storeDB.GetCollection<ULibrary>("ULibrary");
+            var collection = storeDB.GetCollection<User>("User");
 
-            var dataGrid = collection.Find(filter).ToList();
+            var userName = main.User_Text.Text;
+            var filter = Builders<ULibrary>.Filter.Eq("UserName", userName);
 
+            var dataGrid = collectionUL.Find(filter).ToList();
+
+            
             GameList_DataGid.DataContext = dataGrid;
             GameList_DataGid.ItemsSource = dataGrid;
-
         }
 
         private void DataGridTextColumn_Selected(object sender, RoutedEventArgs e)
@@ -55,6 +59,16 @@ namespace GameStoreDiplomca.Windows
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
+        {
+            LReadAllDocument();
+        }
+
+        private void Play_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Download_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

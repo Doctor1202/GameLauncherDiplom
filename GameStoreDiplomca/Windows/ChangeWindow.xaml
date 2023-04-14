@@ -39,7 +39,7 @@
                   Width="298"
                   IsEditable="True"
                   Height="40"
-                  IsSynchronizedWithCurrentItem="False"
+                  IsSynchronizedWithCurrentItem="True"
                   />
 
     </Grid>

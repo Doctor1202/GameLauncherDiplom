@@ -27,22 +27,28 @@ namespace GameStoreDiplomca.Windows
         {
             InitializeComponent();
             DbConnect.ConnectionToDb();
-            //SearchCBUpdate();
+        }
+        private void ChangeWindow_Load(object sender, RoutedEventArgs e)
+        {
+            SearchCBUpdate();
         }
 
         public void SearchCBUpdate()
         {
+            //Вивід назви ігор через комбо бокс
             var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
             var collection = storeDB.GetCollection<GamePage>("GamePage");
             var filter = new BsonDocument();
             var filter2 = collection.Find(filter).ToList();
 
-
+            //Search_ComboBox.Items.Add(filter);
+            Search_ComboBox.DataContext = filter2;
             Search_ComboBox.ItemsSource = filter2;
         }
 
         private void Change_Button_Click(object sender, RoutedEventArgs e)
         {
+            //Зміна інформації гри
             string gameName = GameName_TextBox.Text;
             string publisher = PublisherName_TextBox.Text;
             string genre = GenreName_TextBox.Text;
@@ -74,6 +80,7 @@ namespace GameStoreDiplomca.Windows
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
+            //вивід інформації
             try
             {
                 string search = Search_ComboBox.Text;

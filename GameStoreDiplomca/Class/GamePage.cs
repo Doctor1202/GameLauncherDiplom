@@ -36,5 +36,6 @@ namespace GameStoreDiplomca.Class
             Description = description;
             GameCost = gameCost;
         }
+        //public GamePage() { }
     }
 }

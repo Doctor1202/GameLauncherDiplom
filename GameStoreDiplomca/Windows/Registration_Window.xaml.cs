@@ -51,7 +51,16 @@ namespace GameStoreDiplomca.Windows
                     { "Login",  logInBox },
                     {"Password", passWordBox },
                     {"Money", 0 },
-                    {"IsAdmin", false }
+                    {"IsAdmin", false },
+                    {"ULibrary", new BsonArray 
+                        {
+                            new BsonDocument 
+                            {
+                                {"GameName", "" },
+                                {"IsDownLoad", false}
+                            }
+                        }
+                    }
                 };
 
                 if (filter2 is not null)

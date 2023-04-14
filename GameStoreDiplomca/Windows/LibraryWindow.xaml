@@ -23,6 +23,9 @@
         </DataGrid>
         <Button x:Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="697,391,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Exit_Button_Click"/>
         <Button x:Name="Refresh_Button" Content="Refresh" HorizontalAlignment="Left" Margin="599,391,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Refresh_Button_Click"/>
+        <TextBlock x:Name="GameName_TextBox" HorizontalAlignment="Left" Margin="327,63,0,0" TextWrapping="Wrap" Text="Name of the Game" VerticalAlignment="Top"/>
+        <Button x:Name="Download_Button" Content="Download" HorizontalAlignment="Left" Margin="697,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Download_Button_Click"/>
+        <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="599,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Play_Button_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>
