@@ -70,5 +70,25 @@ namespace GameStoreDiplomca.Windows
         {
 
         }
+
+        private void GameList_DataGid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ULibrary lg = (ULibrary)GameList_DataGid.SelectedItem;
+
+            GameName_TextBox.Text = lg.GameName;
+
+            if (lg.IsDownloud == false)
+            {
+                Download_Button.IsEnabled = true;
+                Play_Button.IsEnabled = false;
+            }
+            else
+            {
+                Download_Button.IsEnabled = false;
+                Play_Button.IsEnabled = true;
+            }
+
+
+        }
     }
 }

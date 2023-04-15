@@ -41,7 +41,6 @@ namespace GameStoreDiplomca.Class
             ULibrary = uLibrary;
         }
 
-        public User() { }
 
     }
 }

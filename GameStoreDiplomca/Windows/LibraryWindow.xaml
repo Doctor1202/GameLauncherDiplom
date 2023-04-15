@@ -11,7 +11,7 @@
                   d:ItemsSource="{Binding}"
                   Margin="10,58,492,10"
                   IsSynchronizedWithCurrentItem="False"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" MouseUp="GameList_DataGid_MouseUp">
             
             <DataGrid.CellStyle>
                 <Style/>
