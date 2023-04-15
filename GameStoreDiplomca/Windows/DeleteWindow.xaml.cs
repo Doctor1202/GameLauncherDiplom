@@ -22,9 +22,6 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class DeleteWindow : Window
     {
-        static DeleteWindow delete = new DeleteWindow();
-        static MainWindow main = new MainWindow();
-
         static MongoClient dbClient = new MongoClient();
         static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
         static IMongoCollection<GamePage> collection = storeDb.GetCollection<GamePage>("GamePage");

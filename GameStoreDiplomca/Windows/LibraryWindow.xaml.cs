@@ -22,9 +22,6 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class LibraryWindow : Window
     {
-        static MainWindow main = new MainWindow();
-        static LoginWindow log  = new LoginWindow();
-
         public LibraryWindow()
         {
             InitializeComponent();
@@ -38,14 +35,15 @@ namespace GameStoreDiplomca.Windows
             var collectionUL = storeDB.GetCollection<ULibrary>("ULibrary");
             var collection = storeDB.GetCollection<User>("User");
 
-            var userName = main.User_Text.Text;
-            var filter = Builders<ULibrary>.Filter.Eq("UserName", userName);
+            var userName = UserName_Text.Text;
+            var filter = Builders<User>.Filter.Eq("UserName", userName);
+            //var filter = new BsonDocument();
 
-            var dataGrid = collectionUL.Find(filter).ToList();
+            var dataGrid = collection.Find(filter).FirstOrDefault();
+            var dataGrid2 = dataGrid.ULibrary.ToList();
 
-            
-            GameList_DataGid.DataContext = dataGrid;
-            GameList_DataGid.ItemsSource = dataGrid;
+            GameList_DataGid.DataContext = dataGrid2;
+            GameList_DataGid.ItemsSource = dataGrid2;
         }
 
         private void DataGridTextColumn_Selected(object sender, RoutedEventArgs e)

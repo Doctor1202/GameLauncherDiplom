@@ -8,10 +8,11 @@
         Title="LibraryWindow" Height="450" Width="800">
     <Grid x:Name="Refresh_button">
         <DataGrid x:Name="GameList_DataGid"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  d:ItemsSource="{Binding}"
                   Margin="10,58,492,10"
                   IsSynchronizedWithCurrentItem="False"
                   AutoGenerateColumns="False">
+            
             <DataGrid.CellStyle>
                 <Style/>
             </DataGrid.CellStyle>
@@ -26,6 +27,7 @@
         <TextBlock x:Name="GameName_TextBox" HorizontalAlignment="Left" Margin="327,63,0,0" TextWrapping="Wrap" Text="Name of the Game" VerticalAlignment="Top"/>
         <Button x:Name="Download_Button" Content="Download" HorizontalAlignment="Left" Margin="697,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Download_Button_Click"/>
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="599,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Play_Button_Click" IsEnabled="False"/>
+        <TextBlock x:Name="UserName_Text" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

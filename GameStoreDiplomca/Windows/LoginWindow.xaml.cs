@@ -12,66 +12,34 @@ namespace GameStoreDiplomca.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
-        static MainWindow main = new MainWindow();
-        static MongoClient dbClient = new MongoClient();
-        static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
-        static IMongoCollection<BsonDocument> collection = storeDb.GetCollection<BsonDocument>("User");
-        static IMongoCollection<User>? collectionUser = storeDb.GetCollection<User>("User");
-
         public LoginWindow()
         {
             InitializeComponent();
             DbConnect.ConnectionToDb();
         }
 
-        public void ReadUserMonye()
-        {
-            string logInBox = LogIn_Box.Text;
-
-            //Обновлення грошей користувача
-            var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-            var collection = storeDB.GetCollection<User>("User");
-            var filter = Builders<User>.Filter.Eq("Login", logInBox);
-            var userMonye = collection.Find(filter).FirstOrDefault();
-
-            main.MoneyCoint_Text.Text = userMonye.Money.ToString();
-        }
-
-
-        public void UserName()
-        {
-            try
-            {
-                string logInBox = LogIn_Box.Text;
-
-                var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
-                var userInfo = collectionUser.Find(searchFilter).FirstOrDefault();
-
-                main.User_Text.Text = userInfo.UserName;
-            }
-            catch (Exception ex){ MessageBox.Show("Error" + ex); }
-        }
-
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                MainWindow main = new MainWindow();
 
                 string logInBox = LogIn_Box.Text;
                 string passWordBox = PassWord_Box.Password;
 
                 var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
-                var collection = storeDB.GetCollection<BsonDocument>("User");
-                var searchFilter = Builders<BsonDocument>.Filter.Eq("Login", logInBox);
+                var collection = storeDB.GetCollection<User>("User");
+                var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
                 var logInUser = collection.Find(searchFilter).FirstOrDefault();
 
-                if (logInUser is not null && logInUser["Password"] == passWordBox)
+                if (logInUser is not null && logInUser.Password == passWordBox)
                 {
                     MessageBox.Show("+");
                     main.Show();
                     Close();
-                    UserName();
-                    ReadUserMonye();
+
+                    main.User_Text.Text = logInUser.UserName;
+                    main.MoneyCoint_Text.Text = logInUser.Money.ToString();
                 }
                 else
                 {
