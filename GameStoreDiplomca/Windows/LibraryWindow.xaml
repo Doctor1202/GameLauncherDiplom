@@ -1,18 +1,18 @@
-﻿<Window x:Class="GameStoreDiplomca.Windows.LibraryWindow"
+﻿<Window x:Name="LibraryWindow1" x:Class="GameStoreDiplomca.Windows.LibraryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStoreDiplomca.Windows"
         mc:Ignorable="d"
-        Title="LibraryWindow" Height="450" Width="800">
+        Title="LibraryWindow" Height="450" Width="800" Loaded="LibraryWindow1_Loaded">
     <Grid x:Name="Refresh_button">
         <DataGrid x:Name="GameList_DataGid"
                   d:ItemsSource="{Binding}"
                   Margin="10,58,492,10"
                   IsSynchronizedWithCurrentItem="False"
                   AutoGenerateColumns="False" MouseUp="GameList_DataGid_MouseUp">
-            
+
             <DataGrid.CellStyle>
                 <Style/>
             </DataGrid.CellStyle>
@@ -28,6 +28,7 @@
         <Button x:Name="Download_Button" Content="Download" HorizontalAlignment="Left" Margin="697,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Download_Button_Click"/>
         <Button x:Name="Play_Button" Content="Play" HorizontalAlignment="Left" Margin="599,264,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Play_Button_Click" IsEnabled="False"/>
         <TextBlock x:Name="UserName_Text" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top"/>
+        <Button x:Name="Delete_Button" Content="Delete" HorizontalAlignment="Left" Margin="697,302,0,0" VerticalAlignment="Top" Height="33" Width="93" Click="Delete_Button_Click"/>
 
     </Grid>
 </Window>
