@@ -40,7 +40,5 @@ namespace GameStoreDiplomca.Class
             IsAdmin = isAdmin;
             ULibrary = uLibrary;
         }
-
-
     }
 }

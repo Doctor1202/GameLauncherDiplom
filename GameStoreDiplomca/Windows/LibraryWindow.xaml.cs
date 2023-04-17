@@ -81,7 +81,7 @@ namespace GameStoreDiplomca.Windows
 
             collection.UpdateOne(filter, update);
 
-            MessageBox.Show("Game was delete from your computer.");
+            MessageBox.Show("Game was downloaded to your computer.");
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
@@ -122,6 +122,8 @@ namespace GameStoreDiplomca.Windows
                 Delete_Button.IsEnabled = true;
             }
         }
+
+
 
         private void LibraryWindow1_Loaded(object sender, RoutedEventArgs e)
         {

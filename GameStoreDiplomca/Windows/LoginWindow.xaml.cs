@@ -40,6 +40,19 @@ namespace GameStoreDiplomca.Windows
 
                     main.User_Text.Text = logInUser.UserName;
                     main.MoneyCoint_Text.Text = logInUser.Money.ToString();
+
+                    if (logInUser.IsAdmin == false)
+                    {
+                        main.Change_Button.Visibility = Visibility.Hidden;
+                        main.Create_Button.Visibility = Visibility.Hidden;
+                        main.Delete_Button.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        main.Change_Button.Visibility = Visibility.Visible;
+                        main.Create_Button.Visibility = Visibility.Visible;
+                        main.Delete_Button.Visibility = Visibility.Visible;
+                    }
                 }
                 else
                 {
@@ -47,8 +60,6 @@ namespace GameStoreDiplomca.Windows
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error" + ex); }
-
-
         }
 
         private void Reg_Button_Click(object sender, RoutedEventArgs e)

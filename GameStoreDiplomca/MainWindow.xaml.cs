@@ -13,20 +13,16 @@ namespace GameStoreDiplomca
     /// </summary>
     public partial class MainWindow : Window
     {
-        static MongoClient dbClient = new MongoClient();
-        static IMongoDatabase storeDb = dbClient.GetDatabase("StoreDB");
-        static IMongoCollection<GamePage> collection = storeDb.GetCollection<GamePage>("GamePage");
-        static IMongoCollection<User> collectionUser = storeDb.GetCollection<User>("User");
-        static IMongoCollection<ULibrary> collectionUL = storeDb.GetCollection<ULibrary>("ULibrary");
-
         public MainWindow()
         {
 
             InitializeComponent();
             DbConnect.ConnectionToDb();
             ReadAllDocument();
+            
         }
        
+
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             DeleteWindow delete = new DeleteWindow();
@@ -112,8 +108,12 @@ namespace GameStoreDiplomca
 
             //вивід грошей користувача
             var userName = User_Text.Text;
+
+            var storeDb = DbConnect.dbClient.GetDatabase("StoreDB");
+            var collectionUser = storeDb.GetCollection<User>("User");
             var filter = Builders<User>.Filter.Eq("UserName", userName);
-            var filter1 = Builders<User>.Filter.Eq("ULibrary.GameName", gp.GameName);
+            var filter1 = Builders<User>.Filter.Eq("UserName", userName) &
+                          Builders<User>.Filter.Eq("ULibrary.GameName", gp.GameName);
             var user = collectionUser.Find(filter).FirstOrDefault();
             var sameGame = collectionUser.Find(filter1).FirstOrDefault();
 
@@ -136,7 +136,8 @@ namespace GameStoreDiplomca
             if (sameGame is not null)
             {
                 MessageBox.Show("You already have this game!");
-
+                ReadAllDocument();
+                ReadUserMonye();
             }
             else 
             {
@@ -155,10 +156,22 @@ namespace GameStoreDiplomca
 
                     MessageBox.Show("Thank you for purchase. \n" +
                                     "Game was added to your library.");
+                    ReadAllDocument();
+                    ReadUserMonye();
+
                 }
             }
 
             
+        }
+
+        private void AddMoney_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddMoney addMoney = new AddMoney();
+            addMoney.Show();
+
+            addMoney.UserName_Text.Text = User_Text.Text;
+            addMoney.Money_Text.Text = MoneyCoint_Text.Text;
         }
     }
 }
