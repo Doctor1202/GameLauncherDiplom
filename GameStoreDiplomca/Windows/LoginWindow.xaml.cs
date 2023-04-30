@@ -46,18 +46,9 @@ namespace GameStoreDiplomca.Windows
                         main.User_Text.Text = logInUser.UserName;
                         main.MoneyCoint_Text.Text = logInUser.Money.ToString();
 
-                        if (logInUser.IsAdmin is false)
-                        {
-                            main.Change_Button.Visibility = Visibility.Hidden;
-                            main.Create_Button.Visibility = Visibility.Hidden;
-                            main.Delete_Button.Visibility = Visibility.Hidden;
-                        }
-                        else
-                        {
-                            main.Change_Button.Visibility = Visibility.Visible;
-                            main.Create_Button.Visibility = Visibility.Visible;
-                            main.Delete_Button.Visibility = Visibility.Visible;
-                        }
+                            main.Change_Button.Visibility = logInUser.IsAdmin ? Visibility.Visible : Visibility.Hidden;
+                            main.Create_Button.Visibility = logInUser.IsAdmin ? Visibility.Visible : Visibility.Hidden;
+                            main.Delete_Button.Visibility = logInUser.IsAdmin ? Visibility.Visible : Visibility.Hidden;
 
                     }
                     else
