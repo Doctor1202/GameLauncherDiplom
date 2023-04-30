@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BCrypt.Net;
 
 namespace GameStoreDiplomca.Windows
 {
@@ -39,6 +40,7 @@ namespace GameStoreDiplomca.Windows
                 string userName = UserName_TextBox.Text;
                 string logInBox = Login_TextBox.Text;
                 string passWordBox = Password_TextBox.Password;
+                var hashPassword = BCrypt.Net.BCrypt.HashPassword(passWordBox);
 
                 var storeDB = DbConnect.dbClient.GetDatabase("StoreDB");
                 var collection = storeDB.GetCollection<BsonDocument>("User");
@@ -49,7 +51,7 @@ namespace GameStoreDiplomca.Windows
                 {
                     {"UserName", userName },
                     { "Login",  logInBox },
-                    {"Password", passWordBox },
+                    {"Password", hashPassword },
                     {"Money", 0 },
                     {"IsAdmin", false },
                     {"ULibrary", new BsonArray 

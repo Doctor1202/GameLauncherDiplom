@@ -1,9 +1,9 @@
 ﻿using GameStoreDiplomca.Class;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Linq;
 using System.Windows;
+using BCrypt.Net;
 
 namespace GameStoreDiplomca.Windows
 {
@@ -32,26 +32,37 @@ namespace GameStoreDiplomca.Windows
                 var searchFilter = Builders<User>.Filter.Eq("Login", logInBox);
                 var logInUser = collection.Find(searchFilter).FirstOrDefault();
 
-                if (logInUser is not null && logInUser.Password == passWordBox)
+
+                if (logInUser is not null)
                 {
-                    MessageBox.Show("+");
-                    main.Show();
-                    Close();
+                    var comparePass = BCrypt.Net.BCrypt.Verify(passWordBox, logInUser.Password);
 
-                    main.User_Text.Text = logInUser.UserName;
-                    main.MoneyCoint_Text.Text = logInUser.Money.ToString();
-
-                    if (logInUser.IsAdmin is false)
+                    if (comparePass)
                     {
-                        main.Change_Button.Visibility = Visibility.Hidden;
-                        main.Create_Button.Visibility = Visibility.Hidden;
-                        main.Delete_Button.Visibility = Visibility.Hidden;
+                        MessageBox.Show("+");
+                        main.Show();
+                        Close();
+
+                        main.User_Text.Text = logInUser.UserName;
+                        main.MoneyCoint_Text.Text = logInUser.Money.ToString();
+
+                        if (logInUser.IsAdmin is false)
+                        {
+                            main.Change_Button.Visibility = Visibility.Hidden;
+                            main.Create_Button.Visibility = Visibility.Hidden;
+                            main.Delete_Button.Visibility = Visibility.Hidden;
+                        }
+                        else
+                        {
+                            main.Change_Button.Visibility = Visibility.Visible;
+                            main.Create_Button.Visibility = Visibility.Visible;
+                            main.Delete_Button.Visibility = Visibility.Visible;
+                        }
+
                     }
                     else
                     {
-                        main.Change_Button.Visibility = Visibility.Visible;
-                        main.Create_Button.Visibility = Visibility.Visible;
-                        main.Delete_Button.Visibility = Visibility.Visible;
+                        MessageBox.Show("-");
                     }
                 }
                 else
@@ -61,7 +72,7 @@ namespace GameStoreDiplomca.Windows
             }
             catch (Exception ex) { MessageBox.Show("Error" + ex); }
         }
-        
+
         private void Reg_Button_Click(object sender, RoutedEventArgs e)
         {
             Registration_Window reg = new Registration_Window();
