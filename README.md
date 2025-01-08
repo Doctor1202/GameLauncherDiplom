@@ -1,1 +1,1 @@
-Bachalor work
+Bachelor work
